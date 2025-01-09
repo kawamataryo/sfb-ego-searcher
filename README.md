@@ -1,4 +1,4 @@
-# ego-searcher 🔍
+# sfb-ego-searcher 🔍
 
 A script for monitoring posts about Sky Follower Bridge ([@sky-follower-bridge.dev](https://bsky.app/profile/sky-follower-bridge.dev)) on Bluesky 🦋
 
