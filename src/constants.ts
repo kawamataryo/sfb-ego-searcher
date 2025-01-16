@@ -12,9 +12,9 @@ export const SEARCH_QUERIES = [
 
 /**
  * 検索対象の投稿の時間
- * 1時間5分前の投稿を検索する（cronが1時間ごとに実行されるため）
+ * 35分前の投稿を検索する（cronが30分ごとに実行されるため）
  */
-export const TARGET_TIME = new Date(Date.now() - 1 * 65 * 60 * 1000);
+export const TARGET_TIME = new Date(Date.now() - 35 * 60 * 1000);
 
 /**
  * スパムの投稿に対する返信メッセージ
