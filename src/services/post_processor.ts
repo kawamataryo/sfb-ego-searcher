@@ -87,7 +87,9 @@ export class PostProcessor {
     analysis: { hasSpamUrl: boolean; isIssue: boolean },
     postUrl: string,
   ): Promise<void> {
-    if (analysis.hasSpamUrl) {
+    const postText = (post.record as { text: string }).text;
+    // 本当にスパム投稿のURLかダブルチェック
+    if (analysis.hasSpamUrl && postText.includes("skyfollowerbridge.com")) {
       await this.handleSpamPost(post, postUrl);
     } else if (analysis.isIssue) {
       await this.handleIssuePost(postUrl);
