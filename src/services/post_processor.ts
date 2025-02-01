@@ -106,27 +106,28 @@ export class PostProcessor {
   private async handleSpamPost(post: PostView, postUrl: string): Promise<void> {
     await this.slackClient.notify({
       text:
-        `🚨 <!channel> 投稿にスパムURLが含まれています。詳細を確認してください。\n${postUrl}`,
+        `🚨🚨🚨 <!channel> 投稿にスパムURLが含まれています。詳細を確認してください。\n${postUrl}`,
     });
 
-    // 正しいSky Follower BridgeのURLを返信する
-    const thumb = await this.bluesky.uploadImage(
-      SPAM_REPLY_POST.LINK.THUMB_URL,
-    );
-    await this.bluesky.replyWithQuoteAndLink({
-      post,
-      text: SPAM_REPLY_POST.MESSAGE,
-      link: {
-        url: SPAM_REPLY_POST.LINK.URL,
-        title: SPAM_REPLY_POST.LINK.TITLE,
-        description: SPAM_REPLY_POST.LINK.DESCRIPTION,
-        thumb,
-      },
-      quotePost: {
-        cid: SPAM_REPLY_POST.QUOTE_POST_CID,
-        uri: SPAM_REPLY_POST.QUOTE_POST_URI,
-      },
-    });
+    //
+    // // 正しいSky Follower BridgeのURLを返信する
+    // const thumb = await this.bluesky.uploadImage(
+    //   SPAM_REPLY_POST.LINK.THUMB_URL,
+    // );
+    // await this.bluesky.replyWithQuoteAndLink({
+    //   post,
+    //   text: SPAM_REPLY_POST.MESSAGE,
+    //   link: {
+    //     url: SPAM_REPLY_POST.LINK.URL,
+    //     title: SPAM_REPLY_POST.LINK.TITLE,
+    //     description: SPAM_REPLY_POST.LINK.DESCRIPTION,
+    //     thumb,
+    //   },
+    //   quotePost: {
+    //     cid: SPAM_REPLY_POST.QUOTE_POST_CID,
+    //     uri: SPAM_REPLY_POST.QUOTE_POST_URI,
+    //   },
+    // });
   }
 
   /**
@@ -136,7 +137,7 @@ export class PostProcessor {
   private async handleIssuePost(postUrl: string): Promise<void> {
     await this.slackClient.notify({
       text:
-        `🚨 <!channel> 不具合ついて言及しています。詳細を確認してください。\n ${postUrl}`,
+        `🚸🚸🚸 <!channel> 不具合ついて言及しています。詳細を確認してください。\n ${postUrl}`,
     });
   }
 
