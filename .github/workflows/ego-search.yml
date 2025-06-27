@@ -2,7 +2,7 @@ name: ego search
 
 on:
   schedule:
-    - cron: "*/40 * * * *" # 40分ごとに実行
+    - cron: "0 0,12 * * *" # 毎日0時と12時に実行（1日2回）
   workflow_dispatch: # 手動実行用
 
 jobs:
