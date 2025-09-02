@@ -12,9 +12,9 @@ export const SEARCH_QUERIES = [
 
 /**
  * 検索対象の投稿の時間
- * 13時間前の投稿を検索する（cronが12時間ごとに実行されるため、1時間の重複を持たせる）
+ * 19時間前の投稿を検索する（6時と12時の実行に対応するため、最大18時間の間隔に1時間の重複を持たせる）
  */
-export const TARGET_TIME = new Date(Date.now() - 13 * 60 * 60 * 1000);
+export const TARGET_TIME = new Date(Date.now() - 19 * 60 * 60 * 1000);
 
 /**
  * スパムの投稿に対する返信メッセージ
